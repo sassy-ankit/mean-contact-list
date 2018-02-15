@@ -31,11 +31,9 @@ router.delete('/contact/:id', (req, res) => {
 	let id = req.params.id;
 	Contact.remove({ _id: id }, (err, result) => {
 		if (err) {
-			res.json({
-				msg: 'Errpr in deleting Contact. Try Again after some time!'
-			});
+			res.json(err);
 		} else {
-			res.json({ msg: 'Contact Deleted Successfully' });
+			res.json(result);
 		}
 	});
 });
